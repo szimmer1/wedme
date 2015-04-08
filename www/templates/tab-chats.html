@@ -1,0 +1,37 @@
+<ion-view view-title="Chats">
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <div class="list list-inset">
+          <label class="item item-input">
+            <span class="input-label">Sender</span>
+            <input type="text" ng-model="newChat.sender"/>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Receipiant</span>
+            <input type="text" ng-model="newChat.receipiant" />
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Message</span>
+            <input type="text" ng-model="newChat.message" />
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Picture URL</span>
+            <input type="text" ng-model="newChat.picUrl" />
+          </label>
+          <button class="button button-positive" ng-click="startChat()">Submit</button>
+        </div>
+      </ion-item>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <img ng-src="{{chat.face}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
